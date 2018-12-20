@@ -1,3 +1,6 @@
 [submodule "Ronin/vendor/spdlog"]
 	path = Ronin/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Ronin/vendor/GLFW"]
+	path = Ronin/vendor/GLFW
+	url = https://github.com/MaesterRowen/glfw

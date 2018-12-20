@@ -1,5 +1,8 @@
 #pragma once
 #include "Core.h"
+#include "Events/Event.h"
+#include "Ronin/Events/ApplicationEvent.h"
+#include "Window.h"
 
 namespace Ronin {
 	class RONIN_API Application
@@ -9,6 +12,12 @@ namespace Ronin {
 		virtual ~Application();
 
 		void Run();
+		void OnEvent(Event& e);
+
+	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 	};
 
 

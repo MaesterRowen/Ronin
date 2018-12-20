@@ -11,6 +11,12 @@ workspace "Ronin"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Ronin/vendor/GLFW/include"
+
+include "Ronin/vendor/GLFW"
+
 project "Ronin"
 	location "Ronin"
 	kind "SharedLib"
@@ -18,6 +24,9 @@ project "Ronin"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "rnpch.h"
+	pchsource "Ronin/src/rnpch.cpp"
 
 	files
 	{
@@ -28,7 +37,14 @@ project "Ronin"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

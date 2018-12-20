@@ -4,6 +4,9 @@
     <Filter Include="Ronin">
       <UniqueIdentifier>{6B99090E-D7AD-31BF-A02F-D51E0C032EF0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ronin\Events">
+      <UniqueIdentifier>{EF1E1DAD-DB81-AC51-8407-E507704978D4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Ronin.h" />
@@ -16,9 +19,24 @@
     <ClInclude Include="src\Ronin\EntryPoint.h">
       <Filter>Ronin</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ronin\Events\ApplicationEvent.h">
+      <Filter>Ronin\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ronin\Events\Event.h">
+      <Filter>Ronin\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ronin\Events\KeyEvent.h">
+      <Filter>Ronin\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ronin\Events\MouseEvent.h">
+      <Filter>Ronin\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ronin\Log.h">
       <Filter>Ronin</Filter>
     </ClInclude>
+    <ClInclude Include="src\rnpch.h" />
+    <ClInclude Include="src\Ronin\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ronin\Application.cpp">
@@ -27,5 +45,7 @@
     <ClCompile Include="src\Ronin\Log.cpp">
       <Filter>Ronin</Filter>
     </ClCompile>
+    <ClCompile Include="src\rnpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
