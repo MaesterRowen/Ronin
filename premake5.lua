@@ -14,8 +14,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Ronin/vendor/GLFW/include"
+IncludeDir["glad"] = "Ronin/vendor/glad/include"
 
 include "Ronin/vendor/GLFW"
+include "Ronin/vendor/glad"
 
 project "Ronin"
 	location "Ronin"
@@ -38,12 +40,14 @@ project "Ronin"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"glad",
 		"opengl32.lib"
 	}
 
@@ -56,6 +60,7 @@ project "Ronin"
 		{
 			"RN_PLATFORM_WINDOWS",
 			"RN_BUILD_DLL",
+			"GLFW_INCLUDE_NONE",
 		}
 
 		postbuildcommands
@@ -65,14 +70,17 @@ project "Ronin"
 
 	filter "configurations:Debug"
 		defines "RN_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RN_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RN_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -112,12 +120,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "RN_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RN_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RN_DIST"
+		buildoptions "/MD"
 		optimize "On"

@@ -1,5 +1,5 @@
 #pragma once
-
+#ifdef RN_PLATFORM_WINDOWS
 #include "Ronin/Window.h"
 #include <GLFW/glfw3.h>
 
@@ -41,3 +41,4 @@ namespace Ronin {
 
 	};
 }
+#endif

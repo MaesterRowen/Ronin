@@ -2,6 +2,7 @@
 
 // For use by Ronin Applications
 #include "Ronin/Application.h"
+#include "Ronin/Layer.h"
 #include "Ronin/Log.h"
 
 // --- Entry Point ------------------
